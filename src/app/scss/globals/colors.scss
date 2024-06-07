@@ -1,0 +1,38 @@
+:root{
+    --dark-bg: hsl(207, 26%, 17%);
+    --dark-text: hsl(0, 0%, 100%);
+    --dark-elements: hsl(209, 23%, 22%);
+    
+    --light-bg: hsl(0, 0%, 96%);
+    --light-text: hsl(200, 15%, 8%);
+    --light-input: hsl(0, 0%, 52%);
+    --light-elements: hsl(0, 0%, 100%);
+
+    --background: var(--light-bg);
+    --text: var(--light-text);
+    --elements: var(--light-elements);
+    --input: var(--light-input);
+}
+
+@media (prefers-color-scheme: dark){
+    :root{
+        --background: var(--dark-bg);
+        --text: var(--dark-text);
+        --elements: var(--dark-elements);
+        --input: var(--dark-text);
+    };
+}
+
+body.light{
+    --background: var(--light-bg);
+    --text: var(--light-text);
+    --elements: var(--light-elements);
+    --input: var(--light-input);
+}
+
+body.dark{
+    --background: var(--dark-bg);
+    --text: var(--dark-text);
+    --elements: var(--dark-elements);
+    --input: var(--dark-text);
+}

@@ -1,0 +1,187 @@
+@use '../util' as *;
+
+.container{
+
+    &-header{
+
+        width: calc(100% - rem(160));
+        margin: rem(40) 0;
+        margin-left: rem(80);
+        height: rem(40);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .input-box{
+            height: rem(40);
+            width: rem(480);
+            padding: 0 rem(50);
+            color: var(--input);
+            background-color: var(--elements);
+            border: none;
+            border-radius: rem(4);
+            box-shadow: 0 0 rem(4) var(--elements);
+            outline: none;
+        }
+
+        .country-filter{
+            width: rem(200);
+            height: rem(40);
+            outline: none;
+            background-color: var(--elements);
+            border: 2px solid var(--elements);
+            border-radius: rem(4);
+            color: var(--text);
+            padding-left: rem(20);
+            box-shadow: 0 0 rem(4) var(--elements);
+
+            option{
+                background-color: var(--elements);
+                color: var(--text);
+                border-radius: rem(4);
+                height: rem(40);
+                width: rem(200);
+            }
+        }
+        .country-filter:hover{
+            cursor: pointer;
+        }
+
+        .search-icon{
+            position: absolute;
+            left: rem(30);
+            pointer-events: none;
+        }
+    }
+
+    .country-list{
+        display: grid;
+        width: calc(100% - rem(160));
+        grid-template-columns: repeat(4, 1fr);
+        gap: rem(75);
+        margin-left: rem(80);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        .country-card{
+            background-color: var(--elements);
+            border-radius: rem(8);
+            box-shadow: 0 0 rem(8) var(--elements);
+            overflow: hidden;
+
+            .img{
+                width: 100%;
+                height: rem(200);
+                object-fit: cover;
+            }
+            
+            &-name{
+                margin: rem(20) 0;
+                padding: 0 rem(20);
+            }
+
+            span{
+                color: var(--light-input);
+            }
+
+            &-population, &-region, &-capital{
+                margin: 0;
+                padding: 0 rem(20);
+            }
+
+            &-capital{
+                margin-bottom: rem(20);
+            }
+
+        }
+        .country-card:hover{
+            cursor: pointer;
+            box-shadow: 0 0 rem(12) var(--elements);
+            transform: scale(1.05);
+        }
+    }
+
+    @include breakpoint-down('large'){
+        &-header{
+            width: calc(100% - rem(80));
+            margin-left: rem(40);
+            .input-box{
+                width: rem(300);
+            }
+            .country-filter{
+                width: rem(150);
+            }
+
+            .search-icon{
+                left: rem(-5);
+            }
+        }
+
+        .country-list{
+            width: calc(100% - rem(80));
+            margin-left: rem(40);
+            grid-template-columns: repeat(3, 1fr);
+            gap: rem(50);
+
+            .country-card{
+                .img{
+                    height: rem(200);
+                }
+                &-name{
+                    margin: rem(10) 0;
+                }
+                &-population, &-region, &-capital{
+                    padding: 0 rem(19);
+                }
+            }
+        }
+
+
+    }
+
+    @include breakpoint-down('medium'){
+        &-header{
+            width: calc(100% - rem(40));
+            height: rem(110);
+            margin: rem(20) 0;
+            margin-left: rem(20);
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .input-box{
+            width: 100%;
+            height: rem(40);
+        }
+        .country-filter{
+            width: 60%;
+
+            option{
+                width: 60%;
+            }
+        }
+
+        .search-icon{
+            top: rem(45);
+            left: rem(-30);
+        }
+
+        .country-list{
+            width: 80%;
+            margin: 0 auto;
+            grid-template-columns: 1fr;
+            gap: rem(40);
+
+            .country-card{
+                .img{
+                    height: rem(200);
+                }
+                &-name{
+                    margin: rem(10) 0;
+                }
+                &-population, &-region, &-capital{
+                    padding: 0 rem(19);
+                }
+            }
+        }
+    }
+}
